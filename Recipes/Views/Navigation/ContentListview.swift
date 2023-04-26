@@ -1,5 +1,5 @@
 //
-//  RecipesApp.swift
+//  ContentListview.swift
 //  Recipes
 //
 //  88                                                     88              88                                     
@@ -13,28 +13,29 @@
 //                   d8'                                                                                          
 //                  d8'                 THE WORLD'S FIRST BYTE DNA ARCHITECT                                      
 //
-//  Created by @bytedriver on 4/24/23.
+//  Created by @bytedriver on 4/25/23.
 //  
 //
 
 import SwiftUI
 
-@main
-struct RecipesApp: App {
-    @StateObject private var recipeBox = RecipeBox()
-    @State private var selectedSidebarItem: SidebarItem? = .all
-    @State private var selectedRecipeId: Recipe.ID?
+struct ContentListview: View {
+    @Binding var selection: Recipe.ID?
+    let selectedSidebarItem: SidebarItem
     
-    var body: some Scene {
-        WindowGroup {
-            NavigationSplitView {
-                SidebarView(selection: $selectedSidebarItem)
-            } content: {
-                ContentListview(selection: $selectedRecipeId, selectedSidebarItem: selectedSidebarItem ?? .all)
-            } detail: {
-                DetailView()
-            }
-            .environmentObject(recipeBox)
+    var body: some View {
+        RecipeListView(selection: $selection, selectedSidebarItem: selectedSidebarItem)
+            .navigationTitle(selectedSidebarItem.title)
+    }
+}
+
+struct ContentListview_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationSplitView {
+            ContentListview(selection: .constant(0), selectedSidebarItem: .all)
+        } detail: {
+            Text("Detail Preview")
         }
+        .environmentObject(RecipeBox())
     }
 }
