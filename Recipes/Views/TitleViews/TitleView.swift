@@ -1,5 +1,5 @@
 //
-//  RecipesApp.swift
+//  TitleView.swift
 //  Recipes
 //
 //  88                                                     88              88                                     
@@ -13,28 +13,36 @@
 //                   d8'                                                                                          
 //                  d8'                 THE WORLD'S FIRST BYTE DNA ARCHITECT                                      
 //
-//  Created by @bytedriver on 4/24/23.
+//  Created by @bytedriver on 4/27/23.
 //  
 //
 
 import SwiftUI
 
-@main
-struct RecipesApp: App {
-    @StateObject private var recipeBox = RecipeBox()
-    @State private var selectedSidebarItem: SidebarItem? = .all
-    @State private var selectedRecipeId: Recipe.ID?
+struct TitleView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Binding var recipe: Recipe
     
-    var body: some Scene {
-        WindowGroup {
-            NavigationSplitView {
-                SidebarView(selection: $selectedSidebarItem)
-            } content: {
-                ContentListview(selection: $selectedRecipeId, selectedSidebarItem: selectedSidebarItem ?? .all)
-            } detail: {
-                DetailView(recipeId: $selectedRecipeId)
+    var body: some View {
+        HStack {
+            switch horizontalSizeClass {
+            case .compact:
+                CompactTitleView(recipe: $recipe)
+            default:
+                RegularTitleView(recipe: $recipe)
             }
-            .environmentObject(recipeBox)
         }
+        .padding()
+        .background(
+            Color.primary
+                .colorInvert()
+                .opacity(0.75)
+        )
+    }
+}
+
+struct TitleView_Previews: PreviewProvider {
+    static var previews: some View {
+        TitleView(recipe: .constant(RecipeBox().allRecipes[0]))
     }
 }

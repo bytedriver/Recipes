@@ -1,5 +1,5 @@
 //
-//  RecipesApp.swift
+//  StarRating.swift
 //  Recipes
 //
 //  88                                                     88              88                                     
@@ -13,28 +13,36 @@
 //                   d8'                                                                                          
 //                  d8'                 THE WORLD'S FIRST BYTE DNA ARCHITECT                                      
 //
-//  Created by @bytedriver on 4/24/23.
+//  Created by @bytedriver on 4/27/23.
 //  
 //
 
 import SwiftUI
 
-@main
-struct RecipesApp: App {
-    @StateObject private var recipeBox = RecipeBox()
-    @State private var selectedSidebarItem: SidebarItem? = .all
-    @State private var selectedRecipeId: Recipe.ID?
+struct StarRating: View {
+    @Binding var rating: Int
+    private let maxRating = 5
     
-    var body: some Scene {
-        WindowGroup {
-            NavigationSplitView {
-                SidebarView(selection: $selectedSidebarItem)
-            } content: {
-                ContentListview(selection: $selectedRecipeId, selectedSidebarItem: selectedSidebarItem ?? .all)
-            } detail: {
-                DetailView(recipeId: $selectedRecipeId)
+    var body: some View {
+        HStack {
+            ForEach(1..<maxRating + 1, id: \.self) { value in
+                Image(systemName: "star")
+                    .symbolVariant(value <= rating ? .fill : .none)
+                    .foregroundColor(.accentColor)
+                    .onTapGesture {
+                        if value != rating {
+                            rating = value
+                        } else {
+                            rating = 0
+                        }
+                    }
             }
-            .environmentObject(recipeBox)
         }
+    }
+}
+
+struct StarRating_Previews: PreviewProvider {
+    static var previews: some View {
+        StarRating(rating: .constant(3))
     }
 }

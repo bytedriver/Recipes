@@ -1,5 +1,5 @@
 //
-//  RecipesApp.swift
+//  CompactTitleView.swift
 //  Recipes
 //
 //  88                                                     88              88                                     
@@ -13,28 +13,32 @@
 //                   d8'                                                                                          
 //                  d8'                 THE WORLD'S FIRST BYTE DNA ARCHITECT                                      
 //
-//  Created by @bytedriver on 4/24/23.
+//  Created by @bytedriver on 4/27/23.
 //  
 //
 
 import SwiftUI
 
-@main
-struct RecipesApp: App {
-    @StateObject private var recipeBox = RecipeBox()
-    @State private var selectedSidebarItem: SidebarItem? = .all
-    @State private var selectedRecipeId: Recipe.ID?
+struct CompactTitleView: View {
+    @Binding var recipe: Recipe
     
-    var body: some Scene {
-        WindowGroup {
-            NavigationSplitView {
-                SidebarView(selection: $selectedSidebarItem)
-            } content: {
-                ContentListview(selection: $selectedRecipeId, selectedSidebarItem: selectedSidebarItem ?? .all)
-            } detail: {
-                DetailView(recipeId: $selectedRecipeId)
-            }
-            .environmentObject(recipeBox)
+    var body: some View {
+        Spacer()
+        VStack {
+            Text(recipe.title)
+                .font(.title2)
+            StarRating(rating: $recipe.rating)
+            Text(recipe.subtitle)
+                .font(.subheadline)
+        }
+        Spacer()
+    }
+}
+
+struct CompactTitleView_Previews: PreviewProvider {
+    static var previews: some View {
+        HStack {
+            CompactTitleView(recipe: .constant(RecipeBox().allRecipes[0]))
         }
     }
 }

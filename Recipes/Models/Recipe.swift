@@ -26,6 +26,7 @@ struct Recipe: Identifiable, Codable {
     var prepTime: Int   // In seconds.
     var cookTime: Int   // In seconds.
     var servings: String
+    var ingredients: String
     var directions: String
     var isFavorite: Bool
     var collections: [String]

@@ -1,5 +1,5 @@
 //
-//  RecipesApp.swift
+//  RecipeIngredientsView.swift
 //  Recipes
 //
 //  88                                                     88              88                                     
@@ -13,28 +13,33 @@
 //                   d8'                                                                                          
 //                  d8'                 THE WORLD'S FIRST BYTE DNA ARCHITECT                                      
 //
-//  Created by @bytedriver on 4/24/23.
+//  Created by @bytedriver on 4/27/23.
 //  
 //
 
 import SwiftUI
 
-@main
-struct RecipesApp: App {
-    @StateObject private var recipeBox = RecipeBox()
-    @State private var selectedSidebarItem: SidebarItem? = .all
-    @State private var selectedRecipeId: Recipe.ID?
+struct RecipeIngredientsView: View {
+    let recipe: Recipe
     
-    var body: some Scene {
-        WindowGroup {
-            NavigationSplitView {
-                SidebarView(selection: $selectedSidebarItem)
-            } content: {
-                ContentListview(selection: $selectedRecipeId, selectedSidebarItem: selectedSidebarItem ?? .all)
-            } detail: {
-                DetailView(recipeId: $selectedRecipeId)
-            }
-            .environmentObject(recipeBox)
+    var body: some View {
+        VStack {
+            Text("INGREDIENTS")
+                .underline()
+                .padding(.bottom)
+            Text(recipe.ingredients)
+                .font(.caption)
+                .lineSpacing(10)
         }
+        .padding()
+        .background(Color.secondary.colorInvert())
+    }
+}
+
+struct RecipeIngredientsView_Previews: PreviewProvider {
+    static var recipeBox = RecipeBox()
+    
+    static var previews: some View {
+        RecipeIngredientsView(recipe: recipeBox.allRecipes[0])
     }
 }
