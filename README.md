@@ -1,3 +1,4 @@
 # Recipes
 Swift UI Recipes Sample
-![re](https://user-images.githubusercontent.com/123972077/235236410-18d66aab-9cb5-44f8-ade4-7f41bb6731f3.gif)
+
+![recipe_recording](https://user-images.githubusercontent.com/123972077/235237795-078b0923-5e56-48ff-b2a4-41b576a7fd61.gif)
