@@ -65,6 +65,21 @@ extension Recipe {
         return ImageStore.shared.image(name: name)
     }
     
+    var prepTimeAsText: String {
+        get { prepTime == 0 ? "" : "\(prepTime)" }
+        set { prepTime = Int(newValue) ?? 0 }
+    }
+
+    var cookTimeAsText: String {
+        get { cookTime == 0 ? "" : "\(cookTime)" }
+        set { cookTime = Int(newValue) ?? 0 }
+    }
+    
+    var collectionAsText: String {
+        get { collections.joined(separator: ",") }
+        set { collections = newValue.replacingOccurrences(of: ", ", with: ",").components(separatedBy: ",") }
+    }
+
     private static let newRecipeId: Recipe.ID = -1
     var isNew: Bool {
         id == Recipe.newRecipeId

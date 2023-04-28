@@ -56,6 +56,9 @@
 		84F3953029FAFA37009125CB /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3952F29FAFA37009125CB /* TitleView.swift */; };
 		84F3953229FAFDFD009125CB /* CompactTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3953129FAFDFD009125CB /* CompactTitleView.swift */; };
 		84F3953429FB00FA009125CB /* RecipeDetailToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3953329FB00FA009125CB /* RecipeDetailToolbar.swift */; };
+		84F3953729FC4183009125CB /* RecipeEditorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3953629FC4183009125CB /* RecipeEditorForm.swift */; };
+		84F3953929FC41F5009125CB /* RecipeEditorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3953829FC41F5009125CB /* RecipeEditorConfig.swift */; };
+		84F3953B29FC47EB009125CB /* RecipeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3953A29FC47EB009125CB /* RecipeEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +131,9 @@
 		84F3952F29FAFA37009125CB /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		84F3953129FAFDFD009125CB /* CompactTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactTitleView.swift; sourceTree = "<group>"; };
 		84F3953329FB00FA009125CB /* RecipeDetailToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailToolbar.swift; sourceTree = "<group>"; };
+		84F3953629FC4183009125CB /* RecipeEditorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditorForm.swift; sourceTree = "<group>"; };
+		84F3953829FC41F5009125CB /* RecipeEditorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditorConfig.swift; sourceTree = "<group>"; };
+		84F3953A29FC47EB009125CB /* RecipeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,7 @@
 				84F3951429F71168009125CB /* Navigation */,
 				84F3951729F834B9009125CB /* RecipeContentListViews */,
 				84F3952029FAF2E6009125CB /* RecipeDetailViews */,
+				84F3953529FC4167009125CB /* RecipeEditor */,
 				84F3952C29FAF776009125CB /* CustomControls */,
 				84F3952929FAF649009125CB /* TitleViews */,
 			);
@@ -315,6 +322,16 @@
 				84F3952D29FAF796009125CB /* StarRating.swift */,
 			);
 			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		84F3953529FC4167009125CB /* RecipeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				84F3953829FC41F5009125CB /* RecipeEditorConfig.swift */,
+				84F3953629FC4183009125CB /* RecipeEditorForm.swift */,
+				84F3953A29FC47EB009125CB /* RecipeEditor.swift */,
+			);
+			path = RecipeEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +497,7 @@
 				84F3950E29F6F2FE009125CB /* Recipe.swift in Sources */,
 				84F3951929F834EC009125CB /* RecipeListItemView.swift in Sources */,
 				84F3952B29FAF66D009125CB /* RegularTitleView.swift in Sources */,
+				84F3953729FC4183009125CB /* RecipeEditorForm.swift in Sources */,
 				84F3951F29F9C013009125CB /* DetailView.swift in Sources */,
 				84F3952829FAF4CD009125CB /* RecipeDetailView.swift in Sources */,
 				84F3951029F70D00009125CB /* ModelHelpers.swift in Sources */,
@@ -487,7 +505,9 @@
 				84F394B229F6E7BD009125CB /* ContentView.swift in Sources */,
 				84F3953029FAFA37009125CB /* TitleView.swift in Sources */,
 				84F394B029F6E7BD009125CB /* RecipesApp.swift in Sources */,
+				84F3953929FC41F5009125CB /* RecipeEditorConfig.swift in Sources */,
 				84F3951229F70F3E009125CB /* RecipeBox.swift in Sources */,
+				84F3953B29FC47EB009125CB /* RecipeEditor.swift in Sources */,
 				84F3951B29F83E29009125CB /* RecipeListView.swift in Sources */,
 				84F3953429FB00FA009125CB /* RecipeDetailToolbar.swift in Sources */,
 				84F3951629F7119F009125CB /* SidebarView.swift in Sources */,
